@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: banking_postgres
+    environment:
+      POSTGRES_DB: banking_personalization
+      POSTGRES_USER: banking_user
+      POSTGRES_PASSWORD: banking_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d
+    networks:
+      - banking_network
+
+  adminer:
+    image: adminer:latest
+    container_name: banking_adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - banking_network
+    depends_on:
+      - postgres
+
+  app:
+    build: .
+    container_name: banking_app
+    environment:
+      - DATABASE_URL=postgresql://banking_user:banking_pass@postgres:5432/banking_personalization
+    volumes:
+      - .:/app
+    working_dir: /app
+    networks:
+      - banking_network
+    depends_on:
+      - postgres
+    command: tail -f /dev/null  # Keep container running for development
+
+volumes:
+  postgres_data:
+
+networks:
+  banking_network:
+    driver: bridge

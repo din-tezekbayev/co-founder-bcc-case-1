@@ -1,0 +1,1622 @@
+2025-09-13 20:24:52,261 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 20:49:52,871 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 20:49:52,881 - src.services.data_migration - INFO - Starting data migration...
+2025-09-13 20:49:52,881 - src.services.data_migration - INFO - Clearing existing data...
+2025-09-13 20:49:52,888 - src.services.data_migration - INFO - Existing data cleared
+2025-09-13 20:49:52,888 - src.services.data_migration - INFO - Migrating clients data...
+2025-09-13 20:49:52,891 - src.services.data_migration - INFO - Loading 60 clients...
+2025-09-13 20:49:52,918 - src.services.data_migration - INFO - Clients migration completed
+2025-09-13 20:49:52,918 - src.services.data_migration - INFO - Migrating transactions and transfers...
+2025-09-13 20:49:52,920 - src.services.data_migration - INFO - Found 60 transaction files and 60 transfer files
+2025-09-13 20:50:00,899 - src.services.data_migration - INFO - Data migration completed successfully
+2025-09-13 20:50:00,902 - __main__ - INFO - Migration completed: {'clients': 60, 'transactions': 18000, 'transfers': 18000}
+2025-09-13 20:50:12,068 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 20:50:12,074 - __main__ - INFO - Starting Banking Personalization System
+2025-09-13 20:50:12,077 - src.utils.database - INFO - Database connection successful
+2025-09-13 20:50:12,078 - __main__ - INFO - Step 1: Migrating CSV data to database...
+2025-09-13 20:50:12,078 - src.services.data_migration - INFO - Starting data migration...
+2025-09-13 20:50:12,078 - src.services.data_migration - INFO - Clearing existing data...
+2025-09-13 20:50:12,095 - src.services.data_migration - INFO - Existing data cleared
+2025-09-13 20:50:12,095 - src.services.data_migration - INFO - Migrating clients data...
+2025-09-13 20:50:12,097 - src.services.data_migration - INFO - Loading 60 clients...
+2025-09-13 20:50:12,111 - src.services.data_migration - INFO - Clients migration completed
+2025-09-13 20:50:12,111 - src.services.data_migration - INFO - Migrating transactions and transfers...
+2025-09-13 20:50:12,112 - src.services.data_migration - INFO - Found 60 transaction files and 60 transfer files
+2025-09-13 20:50:20,069 - src.services.data_migration - INFO - Data migration completed successfully
+2025-09-13 20:50:20,074 - __main__ - INFO - Migration completed: {'clients': 60, 'transactions': 18000, 'transfers': 18000}
+2025-09-13 20:50:20,075 - __main__ - INFO - Step 2: Processing all clients for personalization...
+2025-09-13 20:50:20,080 - __main__ - INFO - Processing 60 clients...
+2025-09-13 20:50:20,108 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 1, 'product_id': 1, 'potential_benefit': 102726.544, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 642040.9, 'annual_travel_spending': 2568163.6, 'annual_cashback': 102726.544, 'fx_savings': 0.0, 'total_annual_benefit': 102726.544}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,109 - __main__ - ERROR - Error in client 1 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 1, 'product_id': 1, 'potential_benefit': 102726.544, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 642040.9, 'annual_travel_spending': 2568163.6, 'annual_cashback': 102726.544, 'fx_savings': 0.0, 'total_annual_benefit': 102726.544}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,109 - __main__ - ERROR - Error processing client 1: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 1, 'product_id': 1, 'potential_benefit': 102726.544, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 642040.9, 'annual_travel_spending': 2568163.6, 'annual_cashback': 102726.544, 'fx_savings': 0.0, 'total_annual_benefit': 102726.544}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,134 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 2, 'product_id': 1, 'potential_benefit': 70063.0432, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 437894.02, 'annual_travel_spending': 1751576.08, 'annual_cashback': 70063.0432, 'fx_savings': 0.0, 'total_annual_benefit': 70063.0432}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,134 - __main__ - ERROR - Error in client 2 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 2, 'product_id': 1, 'potential_benefit': 70063.0432, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 437894.02, 'annual_travel_spending': 1751576.08, 'annual_cashback': 70063.0432, 'fx_savings': 0.0, 'total_annual_benefit': 70063.0432}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,135 - __main__ - ERROR - Error processing client 2: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 2, 'product_id': 1, 'potential_benefit': 70063.0432, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 437894.02, 'annual_travel_spending': 1751576.08, 'annual_cashback': 70063.0432, 'fx_savings': 0.0, 'total_annual_benefit': 70063.0432}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,142 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 3, 'product_id': 1, 'potential_benefit': 43627.2424, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198953.39, 'annual_travel_spending': 795813.56, 'annual_cashback': 31832.5424, 'fx_savings': 11794.7, 'total_annual_benefit': 43627.2424}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,143 - __main__ - ERROR - Error in client 3 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 3, 'product_id': 1, 'potential_benefit': 43627.2424, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198953.39, 'annual_travel_spending': 795813.56, 'annual_cashback': 31832.5424, 'fx_savings': 11794.7, 'total_annual_benefit': 43627.2424}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,143 - __main__ - ERROR - Error processing client 3: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 3, 'product_id': 1, 'potential_benefit': 43627.2424, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198953.39, 'annual_travel_spending': 795813.56, 'annual_cashback': 31832.5424, 'fx_savings': 11794.7, 'total_annual_benefit': 43627.2424}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,150 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 4, 'product_id': 1, 'potential_benefit': 98260.0784, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 614125.49, 'annual_travel_spending': 2456501.96, 'annual_cashback': 98260.0784, 'fx_savings': 0.0, 'total_annual_benefit': 98260.0784}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,150 - __main__ - ERROR - Error in client 4 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 4, 'product_id': 1, 'potential_benefit': 98260.0784, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 614125.49, 'annual_travel_spending': 2456501.96, 'annual_cashback': 98260.0784, 'fx_savings': 0.0, 'total_annual_benefit': 98260.0784}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,150 - __main__ - ERROR - Error processing client 4: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 4, 'product_id': 1, 'potential_benefit': 98260.0784, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 614125.49, 'annual_travel_spending': 2456501.96, 'annual_cashback': 98260.0784, 'fx_savings': 0.0, 'total_annual_benefit': 98260.0784}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,157 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 5, 'product_id': 1, 'potential_benefit': 102552.0288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 640950.18, 'annual_travel_spending': 2563800.72, 'annual_cashback': 102552.0288, 'fx_savings': 0.0, 'total_annual_benefit': 102552.0288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,157 - __main__ - ERROR - Error in client 5 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 5, 'product_id': 1, 'potential_benefit': 102552.0288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 640950.18, 'annual_travel_spending': 2563800.72, 'annual_cashback': 102552.0288, 'fx_savings': 0.0, 'total_annual_benefit': 102552.0288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,157 - __main__ - ERROR - Error processing client 5: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 5, 'product_id': 1, 'potential_benefit': 102552.0288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 640950.18, 'annual_travel_spending': 2563800.72, 'annual_cashback': 102552.0288, 'fx_savings': 0.0, 'total_annual_benefit': 102552.0288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,164 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 6, 'product_id': 1, 'potential_benefit': 94002.4112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 587515.07, 'annual_travel_spending': 2350060.28, 'annual_cashback': 94002.4112, 'fx_savings': 0.0, 'total_annual_benefit': 94002.4112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,164 - __main__ - ERROR - Error in client 6 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 6, 'product_id': 1, 'potential_benefit': 94002.4112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 587515.07, 'annual_travel_spending': 2350060.28, 'annual_cashback': 94002.4112, 'fx_savings': 0.0, 'total_annual_benefit': 94002.4112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,165 - __main__ - ERROR - Error processing client 6: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 6, 'product_id': 1, 'potential_benefit': 94002.4112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 587515.07, 'annual_travel_spending': 2350060.28, 'annual_cashback': 94002.4112, 'fx_savings': 0.0, 'total_annual_benefit': 94002.4112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,172 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 7, 'product_id': 1, 'potential_benefit': 37616.6736, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235104.21, 'annual_travel_spending': 940416.84, 'annual_cashback': 37616.6736, 'fx_savings': 0.0, 'total_annual_benefit': 37616.6736}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,173 - __main__ - ERROR - Error in client 7 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 7, 'product_id': 1, 'potential_benefit': 37616.6736, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235104.21, 'annual_travel_spending': 940416.84, 'annual_cashback': 37616.6736, 'fx_savings': 0.0, 'total_annual_benefit': 37616.6736}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,173 - __main__ - ERROR - Error processing client 7: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 7, 'product_id': 1, 'potential_benefit': 37616.6736, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235104.21, 'annual_travel_spending': 940416.84, 'annual_cashback': 37616.6736, 'fx_savings': 0.0, 'total_annual_benefit': 37616.6736}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,179 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 8, 'product_id': 1, 'potential_benefit': 37684.696, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235529.35, 'annual_travel_spending': 942117.4, 'annual_cashback': 37684.696, 'fx_savings': 0.0, 'total_annual_benefit': 37684.696}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,179 - __main__ - ERROR - Error in client 8 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 8, 'product_id': 1, 'potential_benefit': 37684.696, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235529.35, 'annual_travel_spending': 942117.4, 'annual_cashback': 37684.696, 'fx_savings': 0.0, 'total_annual_benefit': 37684.696}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,180 - __main__ - ERROR - Error processing client 8: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 8, 'product_id': 1, 'potential_benefit': 37684.696, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 235529.35, 'annual_travel_spending': 942117.4, 'annual_cashback': 37684.696, 'fx_savings': 0.0, 'total_annual_benefit': 37684.696}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,187 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 9, 'product_id': 1, 'potential_benefit': 35724.7744, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 223279.84, 'annual_travel_spending': 893119.36, 'annual_cashback': 35724.7744, 'fx_savings': 0.0, 'total_annual_benefit': 35724.7744}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,187 - __main__ - ERROR - Error in client 9 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 9, 'product_id': 1, 'potential_benefit': 35724.7744, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 223279.84, 'annual_travel_spending': 893119.36, 'annual_cashback': 35724.7744, 'fx_savings': 0.0, 'total_annual_benefit': 35724.7744}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,187 - __main__ - ERROR - Error processing client 9: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 9, 'product_id': 1, 'potential_benefit': 35724.7744, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 223279.84, 'annual_travel_spending': 893119.36, 'annual_cashback': 35724.7744, 'fx_savings': 0.0, 'total_annual_benefit': 35724.7744}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,193 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 10, 'product_id': 1, 'potential_benefit': 31829.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198936.05, 'annual_travel_spending': 795744.2, 'annual_cashback': 31829.768, 'fx_savings': 0.0, 'total_annual_benefit': 31829.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,194 - __main__ - ERROR - Error in client 10 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 10, 'product_id': 1, 'potential_benefit': 31829.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198936.05, 'annual_travel_spending': 795744.2, 'annual_cashback': 31829.768, 'fx_savings': 0.0, 'total_annual_benefit': 31829.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,194 - __main__ - ERROR - Error processing client 10: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 10, 'product_id': 1, 'potential_benefit': 31829.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 198936.05, 'annual_travel_spending': 795744.2, 'annual_cashback': 31829.768, 'fx_savings': 0.0, 'total_annual_benefit': 31829.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,201 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 11, 'product_id': 1, 'potential_benefit': 36711.7344, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229448.34, 'annual_travel_spending': 917793.36, 'annual_cashback': 36711.7344, 'fx_savings': 0.0, 'total_annual_benefit': 36711.7344}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,201 - __main__ - ERROR - Error in client 11 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 11, 'product_id': 1, 'potential_benefit': 36711.7344, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229448.34, 'annual_travel_spending': 917793.36, 'annual_cashback': 36711.7344, 'fx_savings': 0.0, 'total_annual_benefit': 36711.7344}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,201 - __main__ - ERROR - Error processing client 11: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 11, 'product_id': 1, 'potential_benefit': 36711.7344, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229448.34, 'annual_travel_spending': 917793.36, 'annual_cashback': 36711.7344, 'fx_savings': 0.0, 'total_annual_benefit': 36711.7344}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,207 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 12, 'product_id': 1, 'potential_benefit': 42876.032, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 267975.2, 'annual_travel_spending': 1071900.8, 'annual_cashback': 42876.032, 'fx_savings': 0.0, 'total_annual_benefit': 42876.032}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,207 - __main__ - ERROR - Error in client 12 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 12, 'product_id': 1, 'potential_benefit': 42876.032, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 267975.2, 'annual_travel_spending': 1071900.8, 'annual_cashback': 42876.032, 'fx_savings': 0.0, 'total_annual_benefit': 42876.032}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,208 - __main__ - ERROR - Error processing client 12: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 12, 'product_id': 1, 'potential_benefit': 42876.032, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 267975.2, 'annual_travel_spending': 1071900.8, 'annual_cashback': 42876.032, 'fx_savings': 0.0, 'total_annual_benefit': 42876.032}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,213 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 13, 'product_id': 1, 'potential_benefit': 38777.1904, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242357.44, 'annual_travel_spending': 969429.76, 'annual_cashback': 38777.1904, 'fx_savings': 0.0, 'total_annual_benefit': 38777.1904}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,214 - __main__ - ERROR - Error in client 13 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 13, 'product_id': 1, 'potential_benefit': 38777.1904, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242357.44, 'annual_travel_spending': 969429.76, 'annual_cashback': 38777.1904, 'fx_savings': 0.0, 'total_annual_benefit': 38777.1904}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,214 - __main__ - ERROR - Error processing client 13: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 13, 'product_id': 1, 'potential_benefit': 38777.1904, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242357.44, 'annual_travel_spending': 969429.76, 'annual_cashback': 38777.1904, 'fx_savings': 0.0, 'total_annual_benefit': 38777.1904}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,220 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 14, 'product_id': 1, 'potential_benefit': 26898.6752, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 168116.72, 'annual_travel_spending': 672466.88, 'annual_cashback': 26898.6752, 'fx_savings': 0.0, 'total_annual_benefit': 26898.6752}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,220 - __main__ - ERROR - Error in client 14 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 14, 'product_id': 1, 'potential_benefit': 26898.6752, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 168116.72, 'annual_travel_spending': 672466.88, 'annual_cashback': 26898.6752, 'fx_savings': 0.0, 'total_annual_benefit': 26898.6752}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,220 - __main__ - ERROR - Error processing client 14: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 14, 'product_id': 1, 'potential_benefit': 26898.6752, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 168116.72, 'annual_travel_spending': 672466.88, 'annual_cashback': 26898.6752, 'fx_savings': 0.0, 'total_annual_benefit': 26898.6752}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,226 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 15, 'product_id': 1, 'potential_benefit': 31143.208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 194645.05, 'annual_travel_spending': 778580.2, 'annual_cashback': 31143.208, 'fx_savings': 0.0, 'total_annual_benefit': 31143.208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,226 - __main__ - ERROR - Error in client 15 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 15, 'product_id': 1, 'potential_benefit': 31143.208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 194645.05, 'annual_travel_spending': 778580.2, 'annual_cashback': 31143.208, 'fx_savings': 0.0, 'total_annual_benefit': 31143.208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,226 - __main__ - ERROR - Error processing client 15: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 15, 'product_id': 1, 'potential_benefit': 31143.208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 194645.05, 'annual_travel_spending': 778580.2, 'annual_cashback': 31143.208, 'fx_savings': 0.0, 'total_annual_benefit': 31143.208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,232 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 16, 'product_id': 1, 'potential_benefit': 47565.288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 297283.05, 'annual_travel_spending': 1189132.2, 'annual_cashback': 47565.288, 'fx_savings': 0.0, 'total_annual_benefit': 47565.288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,232 - __main__ - ERROR - Error in client 16 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 16, 'product_id': 1, 'potential_benefit': 47565.288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 297283.05, 'annual_travel_spending': 1189132.2, 'annual_cashback': 47565.288, 'fx_savings': 0.0, 'total_annual_benefit': 47565.288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,233 - __main__ - ERROR - Error processing client 16: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 16, 'product_id': 1, 'potential_benefit': 47565.288, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 297283.05, 'annual_travel_spending': 1189132.2, 'annual_cashback': 47565.288, 'fx_savings': 0.0, 'total_annual_benefit': 47565.288}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,239 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 17, 'product_id': 1, 'potential_benefit': 29344.0128, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 183400.08, 'annual_travel_spending': 733600.32, 'annual_cashback': 29344.0128, 'fx_savings': 0.0, 'total_annual_benefit': 29344.0128}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,239 - __main__ - ERROR - Error in client 17 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 17, 'product_id': 1, 'potential_benefit': 29344.0128, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 183400.08, 'annual_travel_spending': 733600.32, 'annual_cashback': 29344.0128, 'fx_savings': 0.0, 'total_annual_benefit': 29344.0128}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,239 - __main__ - ERROR - Error processing client 17: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 17, 'product_id': 1, 'potential_benefit': 29344.0128, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 183400.08, 'annual_travel_spending': 733600.32, 'annual_cashback': 29344.0128, 'fx_savings': 0.0, 'total_annual_benefit': 29344.0128}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,245 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 18, 'product_id': 1, 'potential_benefit': 27939.4608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 174621.63, 'annual_travel_spending': 698486.52, 'annual_cashback': 27939.4608, 'fx_savings': 0.0, 'total_annual_benefit': 27939.4608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,245 - __main__ - ERROR - Error in client 18 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 18, 'product_id': 1, 'potential_benefit': 27939.4608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 174621.63, 'annual_travel_spending': 698486.52, 'annual_cashback': 27939.4608, 'fx_savings': 0.0, 'total_annual_benefit': 27939.4608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,245 - __main__ - ERROR - Error processing client 18: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 18, 'product_id': 1, 'potential_benefit': 27939.4608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 174621.63, 'annual_travel_spending': 698486.52, 'annual_cashback': 27939.4608, 'fx_savings': 0.0, 'total_annual_benefit': 27939.4608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,251 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 19, 'product_id': 1, 'potential_benefit': 35935.8864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 224599.29, 'annual_travel_spending': 898397.16, 'annual_cashback': 35935.8864, 'fx_savings': 0.0, 'total_annual_benefit': 35935.8864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,251 - __main__ - ERROR - Error in client 19 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 19, 'product_id': 1, 'potential_benefit': 35935.8864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 224599.29, 'annual_travel_spending': 898397.16, 'annual_cashback': 35935.8864, 'fx_savings': 0.0, 'total_annual_benefit': 35935.8864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,252 - __main__ - ERROR - Error processing client 19: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 19, 'product_id': 1, 'potential_benefit': 35935.8864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 224599.29, 'annual_travel_spending': 898397.16, 'annual_cashback': 35935.8864, 'fx_savings': 0.0, 'total_annual_benefit': 35935.8864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,258 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 20, 'product_id': 1, 'potential_benefit': 43216.392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 270102.45, 'annual_travel_spending': 1080409.8, 'annual_cashback': 43216.392, 'fx_savings': 0.0, 'total_annual_benefit': 43216.392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,258 - __main__ - ERROR - Error in client 20 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 20, 'product_id': 1, 'potential_benefit': 43216.392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 270102.45, 'annual_travel_spending': 1080409.8, 'annual_cashback': 43216.392, 'fx_savings': 0.0, 'total_annual_benefit': 43216.392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,258 - __main__ - ERROR - Error processing client 20: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 20, 'product_id': 1, 'potential_benefit': 43216.392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 270102.45, 'annual_travel_spending': 1080409.8, 'annual_cashback': 43216.392, 'fx_savings': 0.0, 'total_annual_benefit': 43216.392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,265 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 21, 'product_id': 1, 'potential_benefit': 39744.9552, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 248405.97, 'annual_travel_spending': 993623.88, 'annual_cashback': 39744.9552, 'fx_savings': 0.0, 'total_annual_benefit': 39744.9552}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,265 - __main__ - ERROR - Error in client 21 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 21, 'product_id': 1, 'potential_benefit': 39744.9552, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 248405.97, 'annual_travel_spending': 993623.88, 'annual_cashback': 39744.9552, 'fx_savings': 0.0, 'total_annual_benefit': 39744.9552}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,265 - __main__ - ERROR - Error processing client 21: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 21, 'product_id': 1, 'potential_benefit': 39744.9552, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 248405.97, 'annual_travel_spending': 993623.88, 'annual_cashback': 39744.9552, 'fx_savings': 0.0, 'total_annual_benefit': 39744.9552}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,272 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 22, 'product_id': 1, 'potential_benefit': 44125.0656, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 275781.66, 'annual_travel_spending': 1103126.64, 'annual_cashback': 44125.0656, 'fx_savings': 0.0, 'total_annual_benefit': 44125.0656}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,272 - __main__ - ERROR - Error in client 22 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 22, 'product_id': 1, 'potential_benefit': 44125.0656, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 275781.66, 'annual_travel_spending': 1103126.64, 'annual_cashback': 44125.0656, 'fx_savings': 0.0, 'total_annual_benefit': 44125.0656}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,272 - __main__ - ERROR - Error processing client 22: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 22, 'product_id': 1, 'potential_benefit': 44125.0656, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 275781.66, 'annual_travel_spending': 1103126.64, 'annual_cashback': 44125.0656, 'fx_savings': 0.0, 'total_annual_benefit': 44125.0656}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,279 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 23, 'product_id': 1, 'potential_benefit': 42474.0352, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 265462.72, 'annual_travel_spending': 1061850.88, 'annual_cashback': 42474.0352, 'fx_savings': 0.0, 'total_annual_benefit': 42474.0352}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,279 - __main__ - ERROR - Error in client 23 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 23, 'product_id': 1, 'potential_benefit': 42474.0352, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 265462.72, 'annual_travel_spending': 1061850.88, 'annual_cashback': 42474.0352, 'fx_savings': 0.0, 'total_annual_benefit': 42474.0352}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,279 - __main__ - ERROR - Error processing client 23: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 23, 'product_id': 1, 'potential_benefit': 42474.0352, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 265462.72, 'annual_travel_spending': 1061850.88, 'annual_cashback': 42474.0352, 'fx_savings': 0.0, 'total_annual_benefit': 42474.0352}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,285 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 24, 'product_id': 1, 'potential_benefit': 41564.0912, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 259775.57, 'annual_travel_spending': 1039102.28, 'annual_cashback': 41564.0912, 'fx_savings': 0.0, 'total_annual_benefit': 41564.0912}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,285 - __main__ - ERROR - Error in client 24 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 24, 'product_id': 1, 'potential_benefit': 41564.0912, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 259775.57, 'annual_travel_spending': 1039102.28, 'annual_cashback': 41564.0912, 'fx_savings': 0.0, 'total_annual_benefit': 41564.0912}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,286 - __main__ - ERROR - Error processing client 24: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 24, 'product_id': 1, 'potential_benefit': 41564.0912, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 259775.57, 'annual_travel_spending': 1039102.28, 'annual_cashback': 41564.0912, 'fx_savings': 0.0, 'total_annual_benefit': 41564.0912}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,291 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 25, 'product_id': 1, 'potential_benefit': 49825.7728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311411.08, 'annual_travel_spending': 1245644.32, 'annual_cashback': 49825.7728, 'fx_savings': 0.0, 'total_annual_benefit': 49825.7728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,292 - __main__ - ERROR - Error in client 25 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 25, 'product_id': 1, 'potential_benefit': 49825.7728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311411.08, 'annual_travel_spending': 1245644.32, 'annual_cashback': 49825.7728, 'fx_savings': 0.0, 'total_annual_benefit': 49825.7728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,292 - __main__ - ERROR - Error processing client 25: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 25, 'product_id': 1, 'potential_benefit': 49825.7728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311411.08, 'annual_travel_spending': 1245644.32, 'annual_cashback': 49825.7728, 'fx_savings': 0.0, 'total_annual_benefit': 49825.7728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,298 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 26, 'product_id': 1, 'potential_benefit': 116554.3984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 728464.99, 'annual_travel_spending': 2913859.96, 'annual_cashback': 116554.3984, 'fx_savings': 0.0, 'total_annual_benefit': 116554.3984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,298 - __main__ - ERROR - Error in client 26 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 26, 'product_id': 1, 'potential_benefit': 116554.3984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 728464.99, 'annual_travel_spending': 2913859.96, 'annual_cashback': 116554.3984, 'fx_savings': 0.0, 'total_annual_benefit': 116554.3984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,299 - __main__ - ERROR - Error processing client 26: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 26, 'product_id': 1, 'potential_benefit': 116554.3984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 728464.99, 'annual_travel_spending': 2913859.96, 'annual_cashback': 116554.3984, 'fx_savings': 0.0, 'total_annual_benefit': 116554.3984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,305 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 27, 'product_id': 1, 'potential_benefit': 88885.1824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 555532.39, 'annual_travel_spending': 2222129.56, 'annual_cashback': 88885.1824, 'fx_savings': 0.0, 'total_annual_benefit': 88885.1824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,305 - __main__ - ERROR - Error in client 27 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 27, 'product_id': 1, 'potential_benefit': 88885.1824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 555532.39, 'annual_travel_spending': 2222129.56, 'annual_cashback': 88885.1824, 'fx_savings': 0.0, 'total_annual_benefit': 88885.1824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,305 - __main__ - ERROR - Error processing client 27: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 27, 'product_id': 1, 'potential_benefit': 88885.1824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 555532.39, 'annual_travel_spending': 2222129.56, 'annual_cashback': 88885.1824, 'fx_savings': 0.0, 'total_annual_benefit': 88885.1824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,311 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 28, 'product_id': 1, 'potential_benefit': 89467.9104, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 559174.44, 'annual_travel_spending': 2236697.76, 'annual_cashback': 89467.9104, 'fx_savings': 0.0, 'total_annual_benefit': 89467.9104}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,312 - __main__ - ERROR - Error in client 28 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 28, 'product_id': 1, 'potential_benefit': 89467.9104, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 559174.44, 'annual_travel_spending': 2236697.76, 'annual_cashback': 89467.9104, 'fx_savings': 0.0, 'total_annual_benefit': 89467.9104}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,312 - __main__ - ERROR - Error processing client 28: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 28, 'product_id': 1, 'potential_benefit': 89467.9104, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 559174.44, 'annual_travel_spending': 2236697.76, 'annual_cashback': 89467.9104, 'fx_savings': 0.0, 'total_annual_benefit': 89467.9104}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,318 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 29, 'product_id': 1, 'potential_benefit': 94515.1968, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 590719.98, 'annual_travel_spending': 2362879.92, 'annual_cashback': 94515.1968, 'fx_savings': 0.0, 'total_annual_benefit': 94515.1968}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,319 - __main__ - ERROR - Error in client 29 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 29, 'product_id': 1, 'potential_benefit': 94515.1968, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 590719.98, 'annual_travel_spending': 2362879.92, 'annual_cashback': 94515.1968, 'fx_savings': 0.0, 'total_annual_benefit': 94515.1968}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,319 - __main__ - ERROR - Error processing client 29: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 29, 'product_id': 1, 'potential_benefit': 94515.1968, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 590719.98, 'annual_travel_spending': 2362879.92, 'annual_cashback': 94515.1968, 'fx_savings': 0.0, 'total_annual_benefit': 94515.1968}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,325 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 30, 'product_id': 1, 'potential_benefit': 100656.8768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 629105.48, 'annual_travel_spending': 2516421.92, 'annual_cashback': 100656.8768, 'fx_savings': 0.0, 'total_annual_benefit': 100656.8768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,325 - __main__ - ERROR - Error in client 30 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 30, 'product_id': 1, 'potential_benefit': 100656.8768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 629105.48, 'annual_travel_spending': 2516421.92, 'annual_cashback': 100656.8768, 'fx_savings': 0.0, 'total_annual_benefit': 100656.8768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,325 - __main__ - ERROR - Error processing client 30: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 30, 'product_id': 1, 'potential_benefit': 100656.8768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 629105.48, 'annual_travel_spending': 2516421.92, 'annual_cashback': 100656.8768, 'fx_savings': 0.0, 'total_annual_benefit': 100656.8768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,331 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 31, 'product_id': 1, 'potential_benefit': 47167.3296, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 294795.81, 'annual_travel_spending': 1179183.24, 'annual_cashback': 47167.3296, 'fx_savings': 0.0, 'total_annual_benefit': 47167.3296}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,331 - __main__ - ERROR - Error in client 31 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 31, 'product_id': 1, 'potential_benefit': 47167.3296, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 294795.81, 'annual_travel_spending': 1179183.24, 'annual_cashback': 47167.3296, 'fx_savings': 0.0, 'total_annual_benefit': 47167.3296}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,332 - __main__ - ERROR - Error processing client 31: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 31, 'product_id': 1, 'potential_benefit': 47167.3296, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 294795.81, 'annual_travel_spending': 1179183.24, 'annual_cashback': 47167.3296, 'fx_savings': 0.0, 'total_annual_benefit': 47167.3296}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,338 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 32, 'product_id': 1, 'potential_benefit': 47946.12, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 299663.25, 'annual_travel_spending': 1198653.0, 'annual_cashback': 47946.12, 'fx_savings': 0.0, 'total_annual_benefit': 47946.12}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,338 - __main__ - ERROR - Error in client 32 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 32, 'product_id': 1, 'potential_benefit': 47946.12, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 299663.25, 'annual_travel_spending': 1198653.0, 'annual_cashback': 47946.12, 'fx_savings': 0.0, 'total_annual_benefit': 47946.12}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,338 - __main__ - ERROR - Error processing client 32: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 32, 'product_id': 1, 'potential_benefit': 47946.12, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 299663.25, 'annual_travel_spending': 1198653.0, 'annual_cashback': 47946.12, 'fx_savings': 0.0, 'total_annual_benefit': 47946.12}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,345 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 33, 'product_id': 1, 'potential_benefit': 37923.5632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 237022.27, 'annual_travel_spending': 948089.08, 'annual_cashback': 37923.5632, 'fx_savings': 0.0, 'total_annual_benefit': 37923.5632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,345 - __main__ - ERROR - Error in client 33 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 33, 'product_id': 1, 'potential_benefit': 37923.5632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 237022.27, 'annual_travel_spending': 948089.08, 'annual_cashback': 37923.5632, 'fx_savings': 0.0, 'total_annual_benefit': 37923.5632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,345 - __main__ - ERROR - Error processing client 33: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 33, 'product_id': 1, 'potential_benefit': 37923.5632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 237022.27, 'annual_travel_spending': 948089.08, 'annual_cashback': 37923.5632, 'fx_savings': 0.0, 'total_annual_benefit': 37923.5632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,351 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 34, 'product_id': 1, 'potential_benefit': 43184.3824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 269902.39, 'annual_travel_spending': 1079609.56, 'annual_cashback': 43184.3824, 'fx_savings': 0.0, 'total_annual_benefit': 43184.3824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,351 - __main__ - ERROR - Error in client 34 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 34, 'product_id': 1, 'potential_benefit': 43184.3824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 269902.39, 'annual_travel_spending': 1079609.56, 'annual_cashback': 43184.3824, 'fx_savings': 0.0, 'total_annual_benefit': 43184.3824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,351 - __main__ - ERROR - Error processing client 34: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 34, 'product_id': 1, 'potential_benefit': 43184.3824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 269902.39, 'annual_travel_spending': 1079609.56, 'annual_cashback': 43184.3824, 'fx_savings': 0.0, 'total_annual_benefit': 43184.3824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,357 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 35, 'product_id': 1, 'potential_benefit': 49156.0, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 307225.0, 'annual_travel_spending': 1228900.0, 'annual_cashback': 49156.0, 'fx_savings': 0.0, 'total_annual_benefit': 49156.0}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,358 - __main__ - ERROR - Error in client 35 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 35, 'product_id': 1, 'potential_benefit': 49156.0, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 307225.0, 'annual_travel_spending': 1228900.0, 'annual_cashback': 49156.0, 'fx_savings': 0.0, 'total_annual_benefit': 49156.0}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,358 - __main__ - ERROR - Error processing client 35: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 35, 'product_id': 1, 'potential_benefit': 49156.0, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 307225.0, 'annual_travel_spending': 1228900.0, 'annual_cashback': 49156.0, 'fx_savings': 0.0, 'total_annual_benefit': 49156.0}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,364 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 36, 'product_id': 1, 'potential_benefit': 42705.0864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 266906.79, 'annual_travel_spending': 1067627.16, 'annual_cashback': 42705.0864, 'fx_savings': 0.0, 'total_annual_benefit': 42705.0864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,364 - __main__ - ERROR - Error in client 36 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 36, 'product_id': 1, 'potential_benefit': 42705.0864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 266906.79, 'annual_travel_spending': 1067627.16, 'annual_cashback': 42705.0864, 'fx_savings': 0.0, 'total_annual_benefit': 42705.0864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,364 - __main__ - ERROR - Error processing client 36: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 36, 'product_id': 1, 'potential_benefit': 42705.0864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 266906.79, 'annual_travel_spending': 1067627.16, 'annual_cashback': 42705.0864, 'fx_savings': 0.0, 'total_annual_benefit': 42705.0864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,370 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 37, 'product_id': 1, 'potential_benefit': 37394.608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 233716.3, 'annual_travel_spending': 934865.2, 'annual_cashback': 37394.608, 'fx_savings': 0.0, 'total_annual_benefit': 37394.608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,371 - __main__ - ERROR - Error in client 37 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 37, 'product_id': 1, 'potential_benefit': 37394.608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 233716.3, 'annual_travel_spending': 934865.2, 'annual_cashback': 37394.608, 'fx_savings': 0.0, 'total_annual_benefit': 37394.608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,371 - __main__ - ERROR - Error processing client 37: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 37, 'product_id': 1, 'potential_benefit': 37394.608, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 233716.3, 'annual_travel_spending': 934865.2, 'annual_cashback': 37394.608, 'fx_savings': 0.0, 'total_annual_benefit': 37394.608}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,379 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 38, 'product_id': 1, 'potential_benefit': 48674.3888, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304214.93, 'annual_travel_spending': 1216859.72, 'annual_cashback': 48674.3888, 'fx_savings': 0.0, 'total_annual_benefit': 48674.3888}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,379 - __main__ - ERROR - Error in client 38 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 38, 'product_id': 1, 'potential_benefit': 48674.3888, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304214.93, 'annual_travel_spending': 1216859.72, 'annual_cashback': 48674.3888, 'fx_savings': 0.0, 'total_annual_benefit': 48674.3888}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,379 - __main__ - ERROR - Error processing client 38: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 38, 'product_id': 1, 'potential_benefit': 48674.3888, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304214.93, 'annual_travel_spending': 1216859.72, 'annual_cashback': 48674.3888, 'fx_savings': 0.0, 'total_annual_benefit': 48674.3888}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,386 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 39, 'product_id': 1, 'potential_benefit': 39521.4864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 247009.29, 'annual_travel_spending': 988037.16, 'annual_cashback': 39521.4864, 'fx_savings': 0.0, 'total_annual_benefit': 39521.4864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,386 - __main__ - ERROR - Error in client 39 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 39, 'product_id': 1, 'potential_benefit': 39521.4864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 247009.29, 'annual_travel_spending': 988037.16, 'annual_cashback': 39521.4864, 'fx_savings': 0.0, 'total_annual_benefit': 39521.4864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,386 - __main__ - ERROR - Error processing client 39: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 39, 'product_id': 1, 'potential_benefit': 39521.4864, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 247009.29, 'annual_travel_spending': 988037.16, 'annual_cashback': 39521.4864, 'fx_savings': 0.0, 'total_annual_benefit': 39521.4864}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,392 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 40, 'product_id': 1, 'potential_benefit': 48786.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304917.3, 'annual_travel_spending': 1219669.2, 'annual_cashback': 48786.768, 'fx_savings': 0.0, 'total_annual_benefit': 48786.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,393 - __main__ - ERROR - Error in client 40 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 40, 'product_id': 1, 'potential_benefit': 48786.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304917.3, 'annual_travel_spending': 1219669.2, 'annual_cashback': 48786.768, 'fx_savings': 0.0, 'total_annual_benefit': 48786.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,393 - __main__ - ERROR - Error processing client 40: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 40, 'product_id': 1, 'potential_benefit': 48786.768, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 304917.3, 'annual_travel_spending': 1219669.2, 'annual_cashback': 48786.768, 'fx_savings': 0.0, 'total_annual_benefit': 48786.768}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,400 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 41, 'product_id': 1, 'potential_benefit': 39880.7664, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 249254.79, 'annual_travel_spending': 997019.16, 'annual_cashback': 39880.7664, 'fx_savings': 0.0, 'total_annual_benefit': 39880.7664}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,400 - __main__ - ERROR - Error in client 41 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 41, 'product_id': 1, 'potential_benefit': 39880.7664, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 249254.79, 'annual_travel_spending': 997019.16, 'annual_cashback': 39880.7664, 'fx_savings': 0.0, 'total_annual_benefit': 39880.7664}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,400 - __main__ - ERROR - Error processing client 41: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 41, 'product_id': 1, 'potential_benefit': 39880.7664, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 249254.79, 'annual_travel_spending': 997019.16, 'annual_cashback': 39880.7664, 'fx_savings': 0.0, 'total_annual_benefit': 39880.7664}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,407 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 42, 'product_id': 1, 'potential_benefit': 55052.144, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 344075.9, 'annual_travel_spending': 1376303.6, 'annual_cashback': 55052.144, 'fx_savings': 0.0, 'total_annual_benefit': 55052.144}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,407 - __main__ - ERROR - Error in client 42 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 42, 'product_id': 1, 'potential_benefit': 55052.144, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 344075.9, 'annual_travel_spending': 1376303.6, 'annual_cashback': 55052.144, 'fx_savings': 0.0, 'total_annual_benefit': 55052.144}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,407 - __main__ - ERROR - Error processing client 42: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 42, 'product_id': 1, 'potential_benefit': 55052.144, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 344075.9, 'annual_travel_spending': 1376303.6, 'annual_cashback': 55052.144, 'fx_savings': 0.0, 'total_annual_benefit': 55052.144}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,413 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 43, 'product_id': 1, 'potential_benefit': 34779.4976, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 217371.86, 'annual_travel_spending': 869487.44, 'annual_cashback': 34779.4976, 'fx_savings': 0.0, 'total_annual_benefit': 34779.4976}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,413 - __main__ - ERROR - Error in client 43 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 43, 'product_id': 1, 'potential_benefit': 34779.4976, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 217371.86, 'annual_travel_spending': 869487.44, 'annual_cashback': 34779.4976, 'fx_savings': 0.0, 'total_annual_benefit': 34779.4976}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,414 - __main__ - ERROR - Error processing client 43: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 43, 'product_id': 1, 'potential_benefit': 34779.4976, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 217371.86, 'annual_travel_spending': 869487.44, 'annual_cashback': 34779.4976, 'fx_savings': 0.0, 'total_annual_benefit': 34779.4976}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,420 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 44, 'product_id': 1, 'potential_benefit': 40917.4064, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 255733.79, 'annual_travel_spending': 1022935.16, 'annual_cashback': 40917.4064, 'fx_savings': 0.0, 'total_annual_benefit': 40917.4064}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,420 - __main__ - ERROR - Error in client 44 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 44, 'product_id': 1, 'potential_benefit': 40917.4064, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 255733.79, 'annual_travel_spending': 1022935.16, 'annual_cashback': 40917.4064, 'fx_savings': 0.0, 'total_annual_benefit': 40917.4064}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,421 - __main__ - ERROR - Error processing client 44: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 44, 'product_id': 1, 'potential_benefit': 40917.4064, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 255733.79, 'annual_travel_spending': 1022935.16, 'annual_cashback': 40917.4064, 'fx_savings': 0.0, 'total_annual_benefit': 40917.4064}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,427 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 45, 'product_id': 1, 'potential_benefit': 61560.9184, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 384755.74, 'annual_travel_spending': 1539022.96, 'annual_cashback': 61560.9184, 'fx_savings': 0.0, 'total_annual_benefit': 61560.9184}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,427 - __main__ - ERROR - Error in client 45 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 45, 'product_id': 1, 'potential_benefit': 61560.9184, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 384755.74, 'annual_travel_spending': 1539022.96, 'annual_cashback': 61560.9184, 'fx_savings': 0.0, 'total_annual_benefit': 61560.9184}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,428 - __main__ - ERROR - Error processing client 45: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 45, 'product_id': 1, 'potential_benefit': 61560.9184, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 384755.74, 'annual_travel_spending': 1539022.96, 'annual_cashback': 61560.9184, 'fx_savings': 0.0, 'total_annual_benefit': 61560.9184}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,434 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 46, 'product_id': 1, 'potential_benefit': 36764.9456, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229780.91, 'annual_travel_spending': 919123.64, 'annual_cashback': 36764.9456, 'fx_savings': 0.0, 'total_annual_benefit': 36764.9456}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,434 - __main__ - ERROR - Error in client 46 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 46, 'product_id': 1, 'potential_benefit': 36764.9456, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229780.91, 'annual_travel_spending': 919123.64, 'annual_cashback': 36764.9456, 'fx_savings': 0.0, 'total_annual_benefit': 36764.9456}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,434 - __main__ - ERROR - Error processing client 46: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 46, 'product_id': 1, 'potential_benefit': 36764.9456, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 229780.91, 'annual_travel_spending': 919123.64, 'annual_cashback': 36764.9456, 'fx_savings': 0.0, 'total_annual_benefit': 36764.9456}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,441 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 47, 'product_id': 1, 'potential_benefit': 72113.9632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 450712.27, 'annual_travel_spending': 1802849.08, 'annual_cashback': 72113.9632, 'fx_savings': 0.0, 'total_annual_benefit': 72113.9632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,441 - __main__ - ERROR - Error in client 47 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 47, 'product_id': 1, 'potential_benefit': 72113.9632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 450712.27, 'annual_travel_spending': 1802849.08, 'annual_cashback': 72113.9632, 'fx_savings': 0.0, 'total_annual_benefit': 72113.9632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,441 - __main__ - ERROR - Error processing client 47: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 47, 'product_id': 1, 'potential_benefit': 72113.9632, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 450712.27, 'annual_travel_spending': 1802849.08, 'annual_cashback': 72113.9632, 'fx_savings': 0.0, 'total_annual_benefit': 72113.9632}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,447 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 48, 'product_id': 1, 'potential_benefit': 43396.9376, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 271230.86, 'annual_travel_spending': 1084923.44, 'annual_cashback': 43396.9376, 'fx_savings': 0.0, 'total_annual_benefit': 43396.9376}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,447 - __main__ - ERROR - Error in client 48 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 48, 'product_id': 1, 'potential_benefit': 43396.9376, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 271230.86, 'annual_travel_spending': 1084923.44, 'annual_cashback': 43396.9376, 'fx_savings': 0.0, 'total_annual_benefit': 43396.9376}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,448 - __main__ - ERROR - Error processing client 48: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 48, 'product_id': 1, 'potential_benefit': 43396.9376, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 271230.86, 'annual_travel_spending': 1084923.44, 'annual_cashback': 43396.9376, 'fx_savings': 0.0, 'total_annual_benefit': 43396.9376}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,453 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 49, 'product_id': 1, 'potential_benefit': 99050.5984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 619066.24, 'annual_travel_spending': 2476264.96, 'annual_cashback': 99050.5984, 'fx_savings': 0.0, 'total_annual_benefit': 99050.5984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,454 - __main__ - ERROR - Error in client 49 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 49, 'product_id': 1, 'potential_benefit': 99050.5984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 619066.24, 'annual_travel_spending': 2476264.96, 'annual_cashback': 99050.5984, 'fx_savings': 0.0, 'total_annual_benefit': 99050.5984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,454 - __main__ - ERROR - Error processing client 49: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 49, 'product_id': 1, 'potential_benefit': 99050.5984, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 619066.24, 'annual_travel_spending': 2476264.96, 'annual_cashback': 99050.5984, 'fx_savings': 0.0, 'total_annual_benefit': 99050.5984}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,460 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 50, 'product_id': 1, 'potential_benefit': 56102.8208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 350642.63, 'annual_travel_spending': 1402570.52, 'annual_cashback': 56102.8208, 'fx_savings': 0.0, 'total_annual_benefit': 56102.8208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,461 - __main__ - ERROR - Error in client 50 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 50, 'product_id': 1, 'potential_benefit': 56102.8208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 350642.63, 'annual_travel_spending': 1402570.52, 'annual_cashback': 56102.8208, 'fx_savings': 0.0, 'total_annual_benefit': 56102.8208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,461 - __main__ - ERROR - Error processing client 50: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 50, 'product_id': 1, 'potential_benefit': 56102.8208, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 350642.63, 'annual_travel_spending': 1402570.52, 'annual_cashback': 56102.8208, 'fx_savings': 0.0, 'total_annual_benefit': 56102.8208}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,467 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 51, 'product_id': 1, 'potential_benefit': 38808.1248, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242550.78, 'annual_travel_spending': 970203.12, 'annual_cashback': 38808.1248, 'fx_savings': 0.0, 'total_annual_benefit': 38808.1248}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,467 - __main__ - ERROR - Error in client 51 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 51, 'product_id': 1, 'potential_benefit': 38808.1248, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242550.78, 'annual_travel_spending': 970203.12, 'annual_cashback': 38808.1248, 'fx_savings': 0.0, 'total_annual_benefit': 38808.1248}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,467 - __main__ - ERROR - Error processing client 51: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 51, 'product_id': 1, 'potential_benefit': 38808.1248, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 242550.78, 'annual_travel_spending': 970203.12, 'annual_cashback': 38808.1248, 'fx_savings': 0.0, 'total_annual_benefit': 38808.1248}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,474 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 52, 'product_id': 1, 'potential_benefit': 68896.672, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 430604.2, 'annual_travel_spending': 1722416.8, 'annual_cashback': 68896.672, 'fx_savings': 0.0, 'total_annual_benefit': 68896.672}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,474 - __main__ - ERROR - Error in client 52 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 52, 'product_id': 1, 'potential_benefit': 68896.672, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 430604.2, 'annual_travel_spending': 1722416.8, 'annual_cashback': 68896.672, 'fx_savings': 0.0, 'total_annual_benefit': 68896.672}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,474 - __main__ - ERROR - Error processing client 52: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 52, 'product_id': 1, 'potential_benefit': 68896.672, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 430604.2, 'annual_travel_spending': 1722416.8, 'annual_cashback': 68896.672, 'fx_savings': 0.0, 'total_annual_benefit': 68896.672}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,480 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 53, 'product_id': 1, 'potential_benefit': 50401.0416, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 315006.51, 'annual_travel_spending': 1260026.04, 'annual_cashback': 50401.0416, 'fx_savings': 0.0, 'total_annual_benefit': 50401.0416}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,481 - __main__ - ERROR - Error in client 53 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 53, 'product_id': 1, 'potential_benefit': 50401.0416, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 315006.51, 'annual_travel_spending': 1260026.04, 'annual_cashback': 50401.0416, 'fx_savings': 0.0, 'total_annual_benefit': 50401.0416}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,481 - __main__ - ERROR - Error processing client 53: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 53, 'product_id': 1, 'potential_benefit': 50401.0416, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 315006.51, 'annual_travel_spending': 1260026.04, 'annual_cashback': 50401.0416, 'fx_savings': 0.0, 'total_annual_benefit': 50401.0416}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,487 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 54, 'product_id': 1, 'potential_benefit': 169188.1728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 1057426.08, 'annual_travel_spending': 4229704.32, 'annual_cashback': 169188.1728, 'fx_savings': 0.0, 'total_annual_benefit': 169188.1728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,488 - __main__ - ERROR - Error in client 54 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 54, 'product_id': 1, 'potential_benefit': 169188.1728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 1057426.08, 'annual_travel_spending': 4229704.32, 'annual_cashback': 169188.1728, 'fx_savings': 0.0, 'total_annual_benefit': 169188.1728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,488 - __main__ - ERROR - Error processing client 54: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 54, 'product_id': 1, 'potential_benefit': 169188.1728, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 1057426.08, 'annual_travel_spending': 4229704.32, 'annual_cashback': 169188.1728, 'fx_savings': 0.0, 'total_annual_benefit': 169188.1728}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,494 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 55, 'product_id': 1, 'potential_benefit': 49808.6496, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311304.06, 'annual_travel_spending': 1245216.24, 'annual_cashback': 49808.6496, 'fx_savings': 0.0, 'total_annual_benefit': 49808.6496}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,495 - __main__ - ERROR - Error in client 55 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 55, 'product_id': 1, 'potential_benefit': 49808.6496, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311304.06, 'annual_travel_spending': 1245216.24, 'annual_cashback': 49808.6496, 'fx_savings': 0.0, 'total_annual_benefit': 49808.6496}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,495 - __main__ - ERROR - Error processing client 55: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 55, 'product_id': 1, 'potential_benefit': 49808.6496, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 311304.06, 'annual_travel_spending': 1245216.24, 'annual_cashback': 49808.6496, 'fx_savings': 0.0, 'total_annual_benefit': 49808.6496}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,501 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 56, 'product_id': 1, 'potential_benefit': 93108.112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 581925.7, 'annual_travel_spending': 2327702.8, 'annual_cashback': 93108.112, 'fx_savings': 0.0, 'total_annual_benefit': 93108.112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,501 - __main__ - ERROR - Error in client 56 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 56, 'product_id': 1, 'potential_benefit': 93108.112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 581925.7, 'annual_travel_spending': 2327702.8, 'annual_cashback': 93108.112, 'fx_savings': 0.0, 'total_annual_benefit': 93108.112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,501 - __main__ - ERROR - Error processing client 56: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 56, 'product_id': 1, 'potential_benefit': 93108.112, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 581925.7, 'annual_travel_spending': 2327702.8, 'annual_cashback': 93108.112, 'fx_savings': 0.0, 'total_annual_benefit': 93108.112}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,507 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 57, 'product_id': 1, 'potential_benefit': 48965.5824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 306034.89, 'annual_travel_spending': 1224139.56, 'annual_cashback': 48965.5824, 'fx_savings': 0.0, 'total_annual_benefit': 48965.5824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,508 - __main__ - ERROR - Error in client 57 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 57, 'product_id': 1, 'potential_benefit': 48965.5824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 306034.89, 'annual_travel_spending': 1224139.56, 'annual_cashback': 48965.5824, 'fx_savings': 0.0, 'total_annual_benefit': 48965.5824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,508 - __main__ - ERROR - Error processing client 57: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 57, 'product_id': 1, 'potential_benefit': 48965.5824, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 306034.89, 'annual_travel_spending': 1224139.56, 'annual_cashback': 48965.5824, 'fx_savings': 0.0, 'total_annual_benefit': 48965.5824}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,514 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 58, 'product_id': 1, 'potential_benefit': 34332.7392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 214579.62, 'annual_travel_spending': 858318.48, 'annual_cashback': 34332.7392, 'fx_savings': 0.0, 'total_annual_benefit': 34332.7392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,514 - __main__ - ERROR - Error in client 58 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 58, 'product_id': 1, 'potential_benefit': 34332.7392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 214579.62, 'annual_travel_spending': 858318.48, 'annual_cashback': 34332.7392, 'fx_savings': 0.0, 'total_annual_benefit': 34332.7392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,514 - __main__ - ERROR - Error processing client 58: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 58, 'product_id': 1, 'potential_benefit': 34332.7392, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 214579.62, 'annual_travel_spending': 858318.48, 'annual_cashback': 34332.7392, 'fx_savings': 0.0, 'total_annual_benefit': 34332.7392}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,521 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 59, 'product_id': 1, 'potential_benefit': 39033.3712, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 243958.57, 'annual_travel_spending': 975834.28, 'annual_cashback': 39033.3712, 'fx_savings': 0.0, 'total_annual_benefit': 39033.3712}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,521 - __main__ - ERROR - Error in client 59 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 59, 'product_id': 1, 'potential_benefit': 39033.3712, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 243958.57, 'annual_travel_spending': 975834.28, 'annual_cashback': 39033.3712, 'fx_savings': 0.0, 'total_annual_benefit': 39033.3712}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,522 - __main__ - ERROR - Error processing client 59: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 59, 'product_id': 1, 'potential_benefit': 39033.3712, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 243958.57, 'annual_travel_spending': 975834.28, 'annual_cashback': 39033.3712, 'fx_savings': 0.0, 'total_annual_benefit': 39033.3712}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,528 - src.services.benefit_calculator - ERROR - Error saving benefits: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 60, 'product_id': 1, 'potential_benefit': 41079.3504, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 256745.94, 'annual_travel_spending': 1026983.76, 'annual_cashback': 41079.3504, 'fx_savings': 0.0, 'total_annual_benefit': 41079.3504}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,528 - __main__ - ERROR - Error in client 60 processing pipeline: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 60, 'product_id': 1, 'potential_benefit': 41079.3504, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 256745.94, 'annual_travel_spending': 1026983.76, 'annual_cashback': 41079.3504, 'fx_savings': 0.0, 'total_annual_benefit': 41079.3504}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,528 - __main__ - ERROR - Error processing client 60: (psycopg2.ProgrammingError) can't adapt type 'dict'
+[SQL: 
+                    INSERT INTO product_benefits
+                    (client_code, product_id, potential_benefit, benefit_type, calculation_details, confidence_score)
+                    VALUES (%(client_code)s, %(product_id)s, %(potential_benefit)s, %(benefit_type)s, %(calculation_details)s, %(confidence_score)s)
+                    ]
+[parameters: {'client_code': 60, 'product_id': 1, 'potential_benefit': 41079.3504, 'benefit_type': 'cashback_and_savings', 'calculation_details': {'travel_spending_3m': 256745.94, 'annual_travel_spending': 1026983.76, 'annual_cashback': 41079.3504, 'fx_savings': 0.0, 'total_annual_benefit': 41079.3504}, 'confidence_score': 0.9}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,528 - __main__ - INFO - Step 3: Generating comprehensive reports...
+2025-09-13 20:50:20,529 - src.services.report_generator - ERROR - Error generating comprehensive report: (psycopg2.errors.InvalidColumnReference) for SELECT DISTINCT, ORDER BY expressions must appear in select list
+LINE 12: ...                 AND product IS NOT NULL ORDER BY transactio...
+                                                              ^
+
+[SQL: 
+            SELECT c.client_code, c.name,
+                   MAX(CASE WHEN cr.rank = 1 THEN p.name END) as top1_product,
+                   MAX(CASE WHEN cr.rank = 1 THEN cr.potential_benefit END) as top1_benefit,
+                   MAX(CASE WHEN cr.rank = 2 THEN p.name END) as top2_product,
+                   MAX(CASE WHEN cr.rank = 2 THEN cr.potential_benefit END) as top2_benefit,
+                   MAX(CASE WHEN cr.rank = 3 THEN p.name END) as top3_product,
+                   MAX(CASE WHEN cr.rank = 3 THEN cr.potential_benefit END) as top3_benefit,
+                   MAX(CASE WHEN cr.rank = 4 THEN p.name END) as top4_product,
+                   MAX(CASE WHEN cr.rank = 4 THEN cr.potential_benefit END) as top4_benefit,
+                   (SELECT DISTINCT product FROM transactions t WHERE t.client_code = c.client_code
+                    AND product IS NOT NULL ORDER BY transaction_date DESC LIMIT 1) as current_product
+            FROM clients c
+            LEFT JOIN client_recommendations cr ON c.client_code = cr.client_code
+            LEFT JOIN products p ON cr.product_id = p.id
+            GROUP BY c.client_code, c.name
+            ORDER BY c.client_code
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,529 - __main__ - ERROR - Pipeline failed: (psycopg2.errors.InvalidColumnReference) for SELECT DISTINCT, ORDER BY expressions must appear in select list
+LINE 12: ...                 AND product IS NOT NULL ORDER BY transactio...
+                                                              ^
+
+[SQL: 
+            SELECT c.client_code, c.name,
+                   MAX(CASE WHEN cr.rank = 1 THEN p.name END) as top1_product,
+                   MAX(CASE WHEN cr.rank = 1 THEN cr.potential_benefit END) as top1_benefit,
+                   MAX(CASE WHEN cr.rank = 2 THEN p.name END) as top2_product,
+                   MAX(CASE WHEN cr.rank = 2 THEN cr.potential_benefit END) as top2_benefit,
+                   MAX(CASE WHEN cr.rank = 3 THEN p.name END) as top3_product,
+                   MAX(CASE WHEN cr.rank = 3 THEN cr.potential_benefit END) as top3_benefit,
+                   MAX(CASE WHEN cr.rank = 4 THEN p.name END) as top4_product,
+                   MAX(CASE WHEN cr.rank = 4 THEN cr.potential_benefit END) as top4_benefit,
+                   (SELECT DISTINCT product FROM transactions t WHERE t.client_code = c.client_code
+                    AND product IS NOT NULL ORDER BY transaction_date DESC LIMIT 1) as current_product
+            FROM clients c
+            LEFT JOIN client_recommendations cr ON c.client_code = cr.client_code
+            LEFT JOIN products p ON cr.product_id = p.id
+            GROUP BY c.client_code, c.name
+            ORDER BY c.client_code
+            ]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-09-13 20:50:20,529 - __main__ - ERROR - Application failed
+2025-09-13 20:51:23,150 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 20:51:23,157 - __main__ - INFO - Starting Banking Personalization System
+2025-09-13 20:51:23,161 - src.utils.database - INFO - Database connection successful
+2025-09-13 20:51:23,161 - __main__ - INFO - Step 1: Migrating CSV data to database...
+2025-09-13 20:51:23,162 - src.services.data_migration - INFO - Starting data migration...
+2025-09-13 20:51:23,162 - src.services.data_migration - INFO - Clearing existing data...
+2025-09-13 20:51:23,187 - src.services.data_migration - INFO - Existing data cleared
+2025-09-13 20:51:23,188 - src.services.data_migration - INFO - Migrating clients data...
+2025-09-13 20:51:23,190 - src.services.data_migration - INFO - Loading 60 clients...
+2025-09-13 20:51:23,205 - src.services.data_migration - INFO - Clients migration completed
+2025-09-13 20:51:23,206 - src.services.data_migration - INFO - Migrating transactions and transfers...
+2025-09-13 20:51:23,209 - src.services.data_migration - INFO - Found 60 transaction files and 60 transfer files
+2025-09-13 20:51:31,328 - src.services.data_migration - INFO - Data migration completed successfully
+2025-09-13 20:51:31,337 - __main__ - INFO - Migration completed: {'clients': 60, 'transactions': 18000, 'transfers': 18000}
+2025-09-13 20:51:31,338 - __main__ - INFO - Step 2: Processing all clients for personalization...
+2025-09-13 20:51:31,343 - __main__ - INFO - Processing 60 clients...
+2025-09-13 20:51:31,889 - __main__ - INFO - Step 3: Generating comprehensive reports...
+2025-09-13 20:51:31,893 - src.services.report_generator - INFO - Generated comprehensive report: /app/output/client_benefits_analysis.csv
+2025-09-13 20:51:31,893 - src.services.report_generator - INFO - Total clients processed: 60
+2025-09-13 20:51:31,899 - src.services.report_generator - INFO - Exported debug data: /app/output/client_signals_debug.csv, /app/output/product_benefits_debug.csv
+2025-09-13 20:51:31,901 - __main__ - INFO - Analysis Summary:
+2025-09-13 20:51:31,902 - __main__ - INFO -   Total clients: 60
+2025-09-13 20:51:31,902 - __main__ - INFO -   Clients with recommendations: 60
+2025-09-13 20:51:31,902 - __main__ - INFO -   Recommendation rate: 100.0%
+2025-09-13 20:51:31,902 - __main__ - INFO -   Average top benefit: 893,366 ₸
+2025-09-13 20:51:31,902 - __main__ - INFO -   Top recommended products:
+2025-09-13 20:51:31,902 - __main__ - INFO -     Кредитная карта: 60 clients
+2025-09-13 20:51:31,902 - __main__ - INFO -     Премиальная карта: 60 clients
+2025-09-13 20:51:31,902 - __main__ - INFO -     Кредит наличными: 49 clients
+2025-09-13 20:51:31,903 - __main__ - INFO -     Карта для путешествий: 43 clients
+2025-09-13 20:51:31,903 - __main__ - INFO -     Депозит Сберегательный (защита KDIF): 11 clients
+2025-09-13 20:51:31,903 - __main__ - INFO - Pipeline completed successfully in 8.75 seconds
+2025-09-13 20:51:31,903 - __main__ - INFO - Reports generated:
+2025-09-13 20:51:31,903 - __main__ - INFO -   Main report: /app/output/client_benefits_analysis.csv
+2025-09-13 20:51:31,903 - __main__ - INFO -   Debug data: /app/output
+2025-09-13 20:51:31,903 - __main__ - INFO - Application completed successfully
+2025-09-13 21:14:43,559 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 21:14:43,569 - __main__ - INFO - Running analysis for client 2
+2025-09-13 21:14:43,597 - __main__ - INFO - Analysis completed for Данияр (ID: 2)
+2025-09-13 21:14:43,597 - __main__ - INFO - Detected 9 behavioral signals:
+2025-09-13 21:14:43,597 - __main__ - INFO -   travel_spending: 437,894 (high)
+2025-09-13 21:14:43,597 - __main__ - INFO -   high_balance: 1,577,073 (medium)
+2025-09-13 21:14:43,597 - __main__ - INFO -   premium_categories_spending: 514,370 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   frequent_atm_usage: 775,789 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   top_3_categories_spending: 1,588,916 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   online_services_spending: 433,447 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   existing_credit_usage: 0 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   cash_flow_gap: 7,613,049 (high)
+2025-09-13 21:14:43,598 - __main__ - INFO -   low_balance_ratio: 2 (medium)
+2025-09-13 21:14:43,599 - __main__ - INFO - Top 4 product recommendations:
+2025-09-13 21:14:43,599 - __main__ - INFO -   1. Премиальная карта: 850,469 ₸
+2025-09-13 21:14:43,599 - __main__ - INFO -      Кешбэк 0 ₸/год + экономия на комиссиях (тариф base)
+2025-09-13 21:14:43,599 - __main__ - INFO -   2. Кредитная карта: 843,922 ₸
+2025-09-13 21:14:43,599 - __main__ - INFO -      До 10% кешбэк на Продукты питания, Кафе и рестораны, экономия 843,922 ₸/год
+2025-09-13 21:14:43,600 - __main__ - INFO -   3. Кредит наличными: 80,000 ₸
+2025-09-13 21:14:43,600 - __main__ - INFO -      Экономия 80,000 ₸/год на процентах (лимит до 2,000,000 ₸)
+2025-09-13 21:14:43,600 - __main__ - INFO -   4. Карта для путешествий: 70,063 ₸
+2025-09-13 21:14:43,600 - __main__ - INFO -      Экономия 70,063 ₸/год на кешбэке с поездок (траты 437,894 ₸ за 3 мес.)
+2025-09-13 21:16:10,162 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 21:16:10,169 - __main__ - INFO - Running analysis for client 38
+2025-09-13 21:16:10,190 - __main__ - INFO - Analysis completed for Серик (ID: 38)
+2025-09-13 21:16:10,190 - __main__ - INFO - Detected 11 behavioral signals:
+2025-09-13 21:16:10,191 - __main__ - INFO -   travel_spending: 304,215 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   high_balance: 5,818,675 (medium)
+2025-09-13 21:16:10,191 - __main__ - INFO -   premium_categories_spending: 1,061,918 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   frequent_atm_usage: 592,620 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   top_3_categories_spending: 2,106,187 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   online_services_spending: 492,465 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   existing_credit_usage: 0 (high)
+2025-09-13 21:16:10,191 - __main__ - INFO -   cash_flow_gap: 6,039,194 (high)
+2025-09-13 21:16:10,192 - __main__ - INFO -   savings_deposit_candidate: 3,828,052 (high)
+2025-09-13 21:16:10,192 - __main__ - INFO -   investment_candidate: 2,832,741 (medium)
+2025-09-13 21:16:10,192 - __main__ - INFO -   gold_investment_candidate: 5,818,675 (medium)
+2025-09-13 21:16:10,192 - __main__ - INFO - Top 4 product recommendations:
+2025-09-13 21:16:10,193 - __main__ - INFO -   1. Кредитная карта: 1,079,273 ₸
+2025-09-13 21:16:10,193 - __main__ - INFO -      До 10% кешбэк на Кафе и рестораны, Продукты питания, экономия 1,079,273 ₸/год
+2025-09-13 21:16:10,193 - __main__ - INFO -   2. Премиальная карта: 1,061,608 ₸
+2025-09-13 21:16:10,193 - __main__ - INFO -      Кешбэк 0 ₸/год + экономия на комиссиях (тариф base)
+2025-09-13 21:16:10,193 - __main__ - INFO -   3. Депозит Сберегательный (защита KDIF): 631,629 ₸
+2025-09-13 21:16:10,193 - __main__ - INFO -      Доходность 16.5% годовых, доход 631,629 ₸ с суммы 3,828,052 ₸
+2025-09-13 21:16:10,193 - __main__ - INFO -   4. Депозит Накопительный: 593,348 ₸
+2025-09-13 21:16:10,193 - __main__ - INFO -      Доходность 15.5% годовых, доход 593,348 ₸ с суммы 3,828,052 ₸
+2025-09-13 21:17:21,543 - __main__ - INFO - Banking Personalization System starting...
+2025-09-13 21:17:21,550 - __main__ - INFO - Running analysis for client 38
+2025-09-13 21:17:21,574 - __main__ - INFO - Analysis completed for Серик (ID: 38)
+2025-09-13 21:17:21,575 - __main__ - INFO - Detected 11 behavioral signals:
+2025-09-13 21:17:21,575 - __main__ - INFO -   travel_spending: 304,215 (high)
+2025-09-13 21:17:21,575 - __main__ - INFO -   high_balance: 5,818,675 (medium)
+2025-09-13 21:17:21,575 - __main__ - INFO -   premium_categories_spending: 1,061,918 (high)
+2025-09-13 21:17:21,575 - __main__ - INFO -   frequent_atm_usage: 592,620 (high)
+2025-09-13 21:17:21,575 - __main__ - INFO -   top_3_categories_spending: 2,106,187 (high)
+2025-09-13 21:17:21,576 - __main__ - INFO -   online_services_spending: 492,465 (high)
+2025-09-13 21:17:21,576 - __main__ - INFO -   existing_credit_usage: 0 (high)
+2025-09-13 21:17:21,576 - __main__ - INFO -   cash_flow_gap: 6,039,194 (high)
+2025-09-13 21:17:21,576 - __main__ - INFO -   savings_deposit_candidate: 3,828,052 (high)
+2025-09-13 21:17:21,576 - __main__ - INFO -   investment_candidate: 2,832,741 (medium)
+2025-09-13 21:17:21,576 - __main__ - INFO -   gold_investment_candidate: 5,818,675 (medium)
+2025-09-13 21:17:21,577 - __main__ - INFO - Top 4 product recommendations:
+2025-09-13 21:17:21,577 - __main__ - INFO -   1. Кредитная карта: 1,079,273 ₸
+2025-09-13 21:17:21,577 - __main__ - INFO -      До 10% кешбэк на Кафе и рестораны, Продукты питания, экономия 1,079,273 ₸/год
+2025-09-13 21:17:21,577 - __main__ - INFO -   2. Премиальная карта: 1,061,608 ₸
+2025-09-13 21:17:21,577 - __main__ - INFO -      Кешбэк 528,219 ₸/год + экономия на комиссиях (тариф депозит 1-6М)
+2025-09-13 21:17:21,578 - __main__ - INFO -   3. Депозит Сберегательный (защита KDIF): 631,629 ₸
+2025-09-13 21:17:21,578 - __main__ - INFO -      Доходность 16.5% годовых, доход 631,629 ₸ с суммы 3,828,052 ₸
+2025-09-13 21:17:21,578 - __main__ - INFO -   4. Депозит Накопительный: 593,348 ₸
+2025-09-13 21:17:21,578 - __main__ - INFO -      Доходность 15.5% годовых, доход 593,348 ₸ с суммы 3,828,052 ₸
