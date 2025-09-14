@@ -267,6 +267,86 @@ class BankingPersonalizationApp:
             logger.error(f"Single client analysis failed: {e}")
             raise
 
+    def generate_all_push_notifications(self):
+        """Generate push notifications for all clients using Azure OpenAI."""
+        from src.services.notification_generator import NotificationGenerator
+
+        logger.info("Generating push notifications for all clients...")
+
+        notification_generator = NotificationGenerator()
+
+        try:
+            # Get all recommendation records
+            session = self.db_manager.get_session()
+            recommendations_result = session.execute(text("SELECT id FROM client_recommendations ORDER BY id")).fetchall()
+
+            total_recommendations = len(recommendations_result)
+            generated_count = 0
+
+            for recommendation_row in recommendations_result:
+                try:
+                    recommendation_id = recommendation_row.id
+                    success = notification_generator.generate_and_save_notification_by_id(recommendation_id)
+                    if success:
+                        generated_count += 1
+                        logger.info(f"Generated notification for recommendation {recommendation_id}")
+                    else:
+                        logger.warning(f"Failed to generate notification for recommendation {recommendation_id}")
+
+                except Exception as e:
+                    logger.error(f"Error generating notification for recommendation {recommendation_row.id}: {e}")
+                    continue
+
+            session.close()
+            logger.info(f"Notification generation completed: {generated_count}/{total_recommendations} successful")
+
+        except Exception as e:
+            logger.error(f"Error in notification generation pipeline: {e}")
+            raise
+        finally:
+            notification_generator.close()
+
+    def generate_single_push_notification(self, recommendation_id: int):
+        """Generate push notification for a single recommendation using Azure OpenAI."""
+        from src.services.notification_generator import NotificationGenerator
+
+        logger.info(f"Generating push notification for recommendation {recommendation_id}...")
+
+        notification_generator = NotificationGenerator()
+
+        try:
+            success = notification_generator.generate_and_save_notification_by_id(recommendation_id)
+            if success:
+                logger.info(f"Successfully generated notification for recommendation {recommendation_id}")
+
+                # Display the generated notification
+                session = self.db_manager.get_session()
+                try:
+                    result = session.execute(text("""
+                        SELECT c.name, p.name as product_name, cr.push_notification
+                        FROM client_recommendations cr
+                        JOIN clients c ON cr.client_code = c.client_code
+                        JOIN products p ON cr.product_id = p.id
+                        WHERE cr.id = :recommendation_id
+                    """), {'recommendation_id': recommendation_id}).fetchone()
+
+                    if result:
+                        logger.info(f"Generated notification:")
+                        logger.info(f"Client: {result.name}")
+                        logger.info(f"Product: {result.product_name}")
+                        logger.info(f"Notification: {result.push_notification}")
+
+                finally:
+                    session.close()
+            else:
+                logger.error(f"Failed to generate notification for recommendation {recommendation_id}")
+
+        except Exception as e:
+            logger.error(f"Error generating notification for recommendation {recommendation_id}: {e}")
+            raise
+        finally:
+            notification_generator.close()
+
 def main():
     """Main entry point."""
     logger.info("Banking Personalization System starting...")
@@ -297,8 +377,17 @@ def main():
             debug_dir = app.report_generator.export_debug_data()
             logger.info(f"Reports generated: {report_file}, {debug_dir}")
 
+        elif command == "generate_notifications":
+            # Generate push notifications for all clients
+            app.generate_all_push_notifications()
+
+        elif command == "generate_notification" and len(sys.argv) > 2:
+            # Generate push notification for single recommendation
+            recommendation_id = int(sys.argv[2])
+            app.generate_single_push_notification(recommendation_id)
+
         else:
-            logger.info("Usage: python main.py [migrate|analyze <client_code>|report]")
+            logger.info("Usage: python main.py [migrate|analyze <client_code>|report|generate_notifications|generate_notification <recommendation_id>]")
 
     else:
         # Run full pipeline

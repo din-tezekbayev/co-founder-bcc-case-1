@@ -1,6 +1,7 @@
 """Push notification generation service using Azure OpenAI."""
 
 import os
+import json
 import logging
 from typing import Optional, Dict, Any
 from openai import AzureOpenAI
@@ -244,3 +245,283 @@ class NotificationGenerator:
             session.close()
 
         return notifications
+
+    def _load_prompt_template(self) -> str:
+        """Load prompt template from prompt.md file."""
+        try:
+            prompt_path = '/app/prompt.md'
+            with open(prompt_path, 'r', encoding='utf-8') as f:
+                return f.read()
+        except Exception as e:
+            logger.error(f"Error loading prompt template: {e}")
+            # Fallback to basic prompt
+            return """
+Сгенерируй персональное пуш-уведомление для банковского клиента на основе его данных.
+
+ДАННЫЕ КЛИЕНТА:
+{client_data}
+
+Создай короткое (180-220 символов) персональное уведомление с:
+1. Персональным наблюдением по тратам
+2. Конкретной пользой продукта
+3. Призывом к действию
+
+Верни ТОЛЬКО текст уведомления.
+"""
+
+    def _get_client_data_for_notification(self, client_code: int) -> str:
+        """Get detailed client data using the provided SQL query."""
+        from src.utils.database import db_manager
+        from sqlalchemy import text
+
+        session = db_manager.get_session()
+        try:
+            # Execute the provided SQL query
+            result = session.execute(text("""
+                SELECT
+                      u.client_code, u.name as client_name, u.status client_status, u.age, u.city,
+                      p.name as product_name, p.description as product_description, cr.rank as top_level, cr.potential_benefit, cr.recommendation_reason,
+                      pb.calculation_details
+                FROM clients u
+                LEFT JOIN client_recommendations cr ON u.client_code = cr.client_code
+                LEFT JOIN products p ON cr.product_id = p.id
+                LEFT JOIN product_benefits pb ON pb.client_code = u.client_code AND pb.product_id = p.id
+                WHERE u.client_code = :client_code
+                ORDER BY u.client_code, cr.rank
+            """), {'client_code': client_code}).fetchall()
+
+            if not result:
+                return ""
+
+            # Convert SQL result to JSON format
+            client_data_list = []
+
+            for row in result:
+                if row.product_name:  # Only include rows with product data
+                    # Parse calculation_details from JSON string if it's a string
+                    calculation_details = row.calculation_details
+                    if isinstance(calculation_details, str):
+                        try:
+                            calculation_details = json.loads(calculation_details)
+                        except (json.JSONDecodeError, TypeError):
+                            calculation_details = {}
+
+                    client_data_list.append({
+                        "client_code": row.client_code,
+                        "client_name": row.client_name,
+                        "client_status": row.client_status,
+                        "age": row.age,
+                        "city": row.city,
+                        "product_name": row.product_name,
+                        "product_description": row.product_description,
+                        "top_level": row.top_level,
+                        "potential_benefit": float(row.potential_benefit),
+                        "recommendation_reason": row.recommendation_reason,
+                        "calculation_details": calculation_details or {}
+                    })
+
+            # Return JSON string
+            return json.dumps(client_data_list, ensure_ascii=False, indent=2)
+
+        finally:
+            session.close()
+
+    def _get_recommendation_data_by_id(self, recommendation_id: int) -> str:
+        """Get recommendation data by recommendation ID for single recommendation processing."""
+        from src.utils.database import db_manager
+        from sqlalchemy import text
+
+        session = db_manager.get_session()
+        try:
+            # Execute SQL query with specific recommendation ID
+            result = session.execute(text("""
+                SELECT
+                      u.client_code, u.name as client_name, u.status client_status, u.age, u.city,
+                      p.name as product_name, p.description as product_description, cr.rank as top_level, cr.potential_benefit, cr.recommendation_reason,
+                      pb.calculation_details
+                FROM clients u
+                LEFT JOIN client_recommendations cr ON u.client_code = cr.client_code
+                LEFT JOIN products p ON cr.product_id = p.id
+                LEFT JOIN product_benefits pb ON pb.client_code = u.client_code AND pb.product_id = p.id
+                WHERE cr.id = :recommendation_id
+                ORDER BY u.client_code, cr.rank
+            """), {'recommendation_id': recommendation_id}).fetchone()
+
+            if not result:
+                logger.warning(f"No data found for recommendation ID {recommendation_id}")
+                return ""
+
+            # Parse calculation_details from JSON string if it's a string
+            calculation_details = result.calculation_details
+            if isinstance(calculation_details, str):
+                try:
+                    calculation_details = json.loads(calculation_details)
+                except (json.JSONDecodeError, TypeError):
+                    calculation_details = {}
+
+            # Create JSON object for single recommendation
+            recommendation_data = {
+                "client_code": result.client_code,
+                "client_name": result.client_name,
+                "client_status": result.client_status,
+                "age": result.age,
+                "city": result.city,
+                "product_name": result.product_name,
+                "product_description": result.product_description,
+                "top_level": result.top_level,
+                "potential_benefit": float(result.potential_benefit),
+                "recommendation_reason": result.recommendation_reason,
+                "calculation_details": calculation_details or {}
+            }
+
+            # Return JSON string
+            return json.dumps(recommendation_data, ensure_ascii=False, indent=2)
+
+        finally:
+            session.close()
+
+    def generate_and_save_notification(self, client_code: int) -> bool:
+        """Generate push notification for a client and save it to database."""
+        try:
+            # Load prompt template
+            prompt_template = self._load_prompt_template()
+
+            # Get client data
+            client_data = self._get_client_data_for_notification(client_code)
+            if not client_data:
+                logger.warning(f"No data found for client {client_code}")
+                return False
+
+            # Generate notification using Azure OpenAI
+            if self.client:
+                notification = self._generate_notification_with_azure_openai(prompt_template, client_data)
+            else:
+                logger.warning("Azure OpenAI not configured, using template fallback")
+                notification = f"Персональная рекомендация для клиента {client_code}"
+
+            # Save notification to database
+            return self._save_notification_to_database(client_code, notification)
+
+        except Exception as e:
+            logger.error(f"Error generating notification for client {client_code}: {e}")
+            return False
+
+    def generate_and_save_notification_by_id(self, recommendation_id: int) -> bool:
+        """Generate push notification for a specific recommendation and save it to database."""
+        try:
+            # Load prompt template
+            prompt_template = self._load_prompt_template()
+
+            # Get recommendation data by ID
+            recommendation_data = self._get_recommendation_data_by_id(recommendation_id)
+            if not recommendation_data:
+                logger.warning(f"No data found for recommendation ID {recommendation_id}")
+                return False
+
+            # Generate notification using Azure OpenAI
+            if self.client:
+                notification = self._generate_notification_with_azure_openai(prompt_template, recommendation_data)
+            else:
+                logger.warning("Azure OpenAI not configured, using template fallback")
+                notification = f"Персональная рекомендация для записи {recommendation_id}"
+
+            # Save notification to database by recommendation ID
+            return self._save_notification_to_database_by_id(recommendation_id, notification)
+
+        except Exception as e:
+            logger.error(f"Error generating notification for recommendation {recommendation_id}: {e}")
+            return False
+
+    def _generate_notification_with_azure_openai(self, prompt_template: str, client_data: str) -> str:
+        """Generate notification using Azure OpenAI."""
+        try:
+            deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4o")
+
+            # Format prompt with client data
+            full_prompt = prompt_template.replace("{client_data}", client_data)
+
+            response = self.client.chat.completions.create(
+                model=deployment_name,
+                messages=[
+                    {"role": "system", "content": "Ты — эксперт по написанию персональных банковских уведомлений."},
+                    {"role": "user", "content": full_prompt}
+                ],
+                max_tokens=150,
+                temperature=0.7
+            )
+
+            notification = response.choices[0].message.content.strip()
+
+            # Clean up the notification - remove quotes if present
+            if notification.startswith('"') and notification.endswith('"'):
+                notification = notification[1:-1]
+
+            # Validate length (180-220 characters target)
+            if len(notification) > 250:
+                notification = notification[:247] + "..."
+
+            return notification
+
+        except Exception as e:
+            logger.error(f"Error calling Azure OpenAI: {e}")
+            return "Персональная рекомендация банковского продукта"
+
+    def _save_notification_to_database(self, client_code: int, notification: str) -> bool:
+        """Save generated notification to client_recommendations.push_notification field."""
+        from src.utils.database import db_manager
+        from sqlalchemy import text
+
+        session = db_manager.get_session()
+        try:
+            # Update the top recommendation (rank = 1) with the notification
+            session.execute(text("""
+                UPDATE client_recommendations
+                SET push_notification = :notification
+                WHERE client_code = :client_code AND rank = 1
+            """), {
+                'client_code': client_code,
+                'notification': notification
+            })
+
+            session.commit()
+            logger.debug(f"Saved notification for client {client_code}: {notification}")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error saving notification to database: {e}")
+            session.rollback()
+            return False
+        finally:
+            session.close()
+
+    def _save_notification_to_database_by_id(self, recommendation_id: int, notification: str) -> bool:
+        """Save generated notification to specific client_recommendations record by ID."""
+        from src.utils.database import db_manager
+        from sqlalchemy import text
+
+        session = db_manager.get_session()
+        try:
+            # Update the specific recommendation with the notification
+            session.execute(text("""
+                UPDATE client_recommendations
+                SET push_notification = :notification
+                WHERE id = :recommendation_id
+            """), {
+                'recommendation_id': recommendation_id,
+                'notification': notification
+            })
+
+            session.commit()
+            logger.debug(f"Saved notification for recommendation {recommendation_id}: {notification}")
+            return True
+
+        except Exception as e:
+            logger.error(f"Error saving notification to database: {e}")
+            session.rollback()
+            return False
+        finally:
+            session.close()
+
+    def close(self):
+        """Close any resources."""
+        pass
