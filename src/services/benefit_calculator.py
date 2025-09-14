@@ -299,8 +299,14 @@ class BenefitCalculator:
             for fx_type in ['fx_buy', 'fx_sell']
         )
 
+        # Calculate with minimum FX volume if no actual FX activity
         if fx_volume == 0:
-            return None
+            # Estimate potential FX need from foreign spending
+            foreign_spending = analytics.foreign_currency_spending
+            if foreign_spending > 0:
+                fx_volume = foreign_spending  # Assume need to buy foreign currency
+            else:
+                fx_volume = Decimal('50000')  # Minimum viable FX volume for calculation
 
         # Spread savings: assume 1% better rate than market
         spread_savings = fx_volume * 4 * Decimal('0.01')  # Annualized
@@ -389,8 +395,9 @@ class BenefitCalculator:
         # Available funds for deposits (keep 2-3 months buffer)
         available_funds = balance - (monthly_spending * 2)
 
-        if available_funds < 100000:  # Minimum deposit threshold
-            return benefits
+        # Calculate with minimum viable deposit amount if client doesn't have enough funds
+        if available_funds < 100000:
+            available_funds = Decimal('100000')  # Use minimum deposit for calculation
 
         # Savings Deposit: 16.5%
         savings_product = self.products.get('Депозит Сберегательный (защита KDIF)')
@@ -461,8 +468,9 @@ class BenefitCalculator:
         # Available funds for investment (keep 3 months buffer)
         available_funds = balance - (monthly_spending * 3)
 
-        if available_funds < 10000:  # Minimum investment threshold
-            return None
+        # Calculate with minimum viable investment amount if client doesn't have enough funds
+        if available_funds < 10000:
+            available_funds = Decimal('10000')  # Use minimum investment for calculation
 
         # Commission savings: 0% first year
         estimated_trades_per_year = 12  # Assume monthly rebalancing
@@ -501,8 +509,9 @@ class BenefitCalculator:
 
         balance = analytics.client.avg_monthly_balance_kzt
 
-        if balance < 2000000:  # High liquidity threshold
-            return None
+        # Calculate with minimum viable allocation even for smaller balances
+        if balance < 2000000:
+            balance = Decimal('2000000')  # Use minimum threshold for calculation
 
         # Conservative allocation: 5-10% of liquid assets
         allocation = min(balance * Decimal('0.10'), Decimal('5000000'))
