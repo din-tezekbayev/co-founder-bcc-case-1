@@ -17,6 +17,16 @@ This system processes 60 clients' 3-month banking data to:
 - **Adminer**: Database management interface
 - **Docker Compose**: Complete containerized environment
 
+## Database Dump file
+```text
+db-dump.sql
+```
+
+## CSV Output Result
+```text
+output/co-founder-bcc-case-1-result.csv
+```
+
 ## Quick Start
 
 ### 1. Set up environment
